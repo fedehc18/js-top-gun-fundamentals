@@ -107,89 +107,73 @@ console.log(user);
 
 
 const candidate = {
-    name: 'Carlos',
-    age: 15,
-    pointAverage: 18
-
-}
+  name: "Carlos",
+  age: 15,
+  pointAverage: 18,
+};
 
 function isAgeRight(age) {
+  const MAX_AGE = 40;
+  const MIN_AGE = 18;
 
-    const MAX_AGE = 40;
-    const MIN_AGE = 18;
+  if (typeof age !== "number") {
+    console.log("Error: it has to be a number");
+    return false
+  }
 
-if(typeof !== 'number'){
-  return  console.log('Error: it has to be a number');
+  if (age && age < MIN_AGE) {
+    console.log(
+      `The user is ${MIN_AGE - age} years younger than the minimum age limit`
+    );
+    return false
+  } else if (age > MAX_AGE) {
+    console.log(
+      `The user is ${age - MAX_AGE} years older than the maximun age limit`
+    );
+    return false
+  }
+  console.log("user is available fot the scholarship");
+  return true
 }
 
-    if (age
-        && age < MIN_AGE) {
-        return console.log(`The user is ${MIN_AGE - age} years younger than the minimum age limit`);
+function isPointAverageRight(pointAverage) {
+  const MIN_AVERAGE = 17;
+  const MAX_AVERAGE = 20;
 
-    }
-    else if (age > MAX_AGE) {
-        return console.log(`The user is ${age - MAX_AGE} years older than the maximun age limit`);
-    }
-    return console.log('user is available fot the scholarship'
-    )
+  let isRightAverage = true;
 
+  if (pointAverage > MAX_AVERAGE) {
+    console.log("There is an issue with the point average");
+    isRightAverage = false;
+  } else if (pointAverage < MIN_AVERAGE) {
+    console.log(
+      `point average is ${
+        MIN_AVERAGE - pointAverage
+      } is less than the minimun required`
+    );
+    isRightAverage = false;
+  }
 
-}
-
-function isPontAverageRight(pointAverage) {
-    const MIN_AVERAGE = 17;
-    const MAX_AVERAGE = 20;
-
-    let isRightAverage = true;
-
-    if (pointAverage > MAX_AVERAGE) {
-        console.log('There is an issue with the point average')
-        isRightAverage = false;
-    }
-
-    else if (pointAverage < MIN_AVERAGE) {
-        console.log(`point average is ${MIN_AVERAGE - pointAverage} is less than the minimun required`)
-        isRightAverage=false;
-    }
-
-    return isRightAverage;
-
+  return isRightAverage;
 }
 
 function canTheUserHasTheScholarship(userCandidate) {
-    if (!userCandidate.hasOwnProperty('age')
-        || !userCandidate.hasOwnProperty('pointAverage')) {
-        return 'Some data is missing';
-    }
+  if (
+    !userCandidate.hasOwnProperty("age") ||
+    !userCandidate.hasOwnProperty("pointAverage")
+  ) {
+    return "Some data is missing";
+  }
 
-    return isPointAverageRight(userCandidate.pointAverage)
-        && isAgeRight(userCandidate.age)
-`${userCandidate.name} got the scholarship`
-`${userCandidate.name} did not get the scholarship`
+  return (isPointAverageRight(userCandidate.pointAverage) && isAgeRight(userCandidate.age)) 
+                        ? `${userCandidate.name} got the scholarship` 
+                        : `${userCandidate.name} did not get the scholarship`;
 }
 
-
-console.log(canTheUserHasTheScholarship(candidate))
+console.log("**********************");
+console.log(canTheUserHasTheScholarship(candidate));
 
 //console.log(isAgeRight(candidate.age))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
