@@ -1,1 +1,2 @@
-# js-top-gun-fundamentals
+# JS Top Gun Lab
+# JS Fundamentals
