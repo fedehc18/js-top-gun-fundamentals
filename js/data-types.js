@@ -13,6 +13,8 @@ console.log(typeof trueValue);
 const personName = 'Federico';
 const character = personName.charAt(0)
 /* console.log(character) */
+//console.log
+
 
 const nameAndLocation = personName.concat(', Medellin')
 personName[0] = 'Z';
